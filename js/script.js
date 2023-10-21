@@ -24,7 +24,7 @@ let snakeArr = [
     },
 
 ]
-foodArr = {
+let foodArr = {
     x: 15, y: 3
 };
 lastPaintTime = 0;
@@ -76,7 +76,7 @@ function gameEngine() {
     }
     // If you have eaten the food , increment the scdore and regenerate the food
     if (snakeArr[0].y === foodArr.y && snakeArr[0].x === foodArr.x) {
-        
+
         foodSound.play();
         snakeArr.unshift({ x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y });
         score += 1;
@@ -94,10 +94,10 @@ function gameEngine() {
         let b = 18;
         while (true) {
             foodArr = { x: Math.round(a + (b - a) * Math.random()), y: Math.round(a + (b - a) * Math.random()) };
-            if (snakeArr.includes(foodArr) === false) {
+            if (snakeArr.filter((e) => e.x == foodArr.x && e.y == foodArr.y).length === 0) {
                 break;
             }
-            else{
+            else {
                 console.log("241645456464578974");
                 continue;
             }
@@ -153,10 +153,14 @@ window.addEventListener("keydown", e => {
     moveSound.play();
     switch (e.key) {
         case "ArrowUp":
-     
+
+
+
+
             inputDir.x = 0;
             inputDir.y = -1;
             break;
+
         case "ArrowDown":
 
             inputDir.x = 0;
@@ -168,7 +172,7 @@ window.addEventListener("keydown", e => {
             inputDir.y = 0;
             break;
         case "ArrowRight":
-     
+
             inputDir.x = 1;
             inputDir.y = 0;
             break;
