@@ -56,6 +56,7 @@ function isCollide(snakeArr) {
 
 }
 
+
 function gameEngine() {
     // Part 1 : Updating Snake arry
     if (isCollide(snakeArr)) {
@@ -104,13 +105,16 @@ function gameEngine() {
 
         }
     }
-
     // Moving the snake
-    for (let i = snakeArr.length - 2; i >= 0; i--) {
-        snakeArr[i + 1] = { ...snakeArr[i] };
-    }
-    snakeArr[0].x += inputDir.x;
-    snakeArr[0].y += inputDir.y;
+
+
+        for (let i = snakeArr.length - 2; i >= 0; i--) {
+
+            snakeArr[i + 1] = { ...snakeArr[i] };
+        }
+        snakeArr[0].x += inputDir.x;
+        snakeArr[0].y += inputDir.y;
+
     // Part 2 : Display the snake and food 
     // display snake
 
